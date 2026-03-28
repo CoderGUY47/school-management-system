@@ -65,14 +65,7 @@ export default function TeacherAttendancePage() {
             ))}
           </select>
         </div>
-        {/* <Link
-          href={`/teacher/attendance/${classId}/${section}`}
-          className="inline-flex items-center px-4 py-2 rounded bg-white/20 border border-white/20 backdrop-blur text-white text-sm hover:bg-white/30"
-        >
-          Open in dedicated page
-        </Link> */}
       </div>
-
       <AttendanceSheet classId={classId} section={section} />
       </div>
     </main>

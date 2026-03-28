@@ -1,8 +1,10 @@
 "use client";
 
 import React from 'react';
-import { LuArrowLeft, LuArrowRight } from 'react-icons/lu';
+import Link from 'next/link';
+import { LuArrowLeft, LuArrowRight, LuHouse } from 'react-icons/lu';
 import TeacherCard, { Teacher } from '@/app/components/TeacherCard';
+import Header from '../components/Header';
 
 const allTeachers: Teacher[] = [
   { id: 1, name: 'Dr. Robert Smith', email: 'r.smith@email.com', subject: 'Mathematics', students: 45, rating: 4.8, experience: '8 years', avatar: '/images/teacher1.jpg' },
@@ -29,11 +31,37 @@ export default function TeachersPage() {
   const teachers = allTeachers.slice(start, start + pageSize);
 
   return (
-    <main className="container mx-auto px-6 py-8">
+    <main className="container mx-auto px-6 py-8 mb-10">
+      <Header 
+        userProfile={{
+          fullName: 'Admin User',
+          role: 'Administrator',
+          profilePicture: null
+        }}
+      />
       <div className="mb-8 mx-auto text-center">
         <h1 className="text-3xl font-bold tracking-tight">Our Teachers</h1>
-        <p className="text-sm text-gray-600 mt-1">Experienced, dedicated, and ready to inspire.</p>
+        <p className="text-sm text-gray-300 mt-1">Experienced, dedicated, and ready to inspire.</p>
       </div>
+      
+      {/* Navigation buttons */}
+      <div className="px-4 mb-4 flex items-center gap-2 justify-between">
+        <button
+          onClick={() => window.history.back()}
+          className="text-white/90 active:scale-95"
+          title="Go back"
+        >
+          <LuArrowLeft className="h-5 w-5" />
+        </button>
+        <Link
+          href="/"
+          className="text-white/90 active:scale-95"
+          title="Go home"
+        >
+          <LuHouse className="h-5 w-5" />
+        </Link>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {teachers.map((t) => (
           <TeacherCard key={t.id} teacher={t} />

@@ -20,6 +20,7 @@ import StatsCards from './components/StatsCards';
 import DataTables from './components/DataTables';
 import Modals from './components/Modals';
 import SignIn from './components/SignIn';
+import Header from './components/Header';
 
 
 // Remove incorrect imports - we'll use direct paths instead
@@ -872,7 +873,7 @@ export default function Dashboard() {
         : 'bg-gradient-to-br from-[#250c38] via-[#3c225a] to-slate-800'
     }`}>
       {/* Header */}
-      <header className={`backdrop-blur-xl shadow-lg transition-all duration-500 ${
+      {/* <header className={`backdrop-blur-xl shadow-lg transition-all duration-500 ${
         darkMode ? 'bg-black/20' : 'bg-white/10'
       }`}>
         <div className="container mx-auto px-6 py-6">
@@ -947,10 +948,17 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-      </header>
+      </header> */}
+      <Header 
+        userProfile={userProfile}
+        onSettingsClick={handleSettingsClick}
+        onSignOut={handleSignOut}
+        darkMode={darkMode}
+
+      />
 
       {/* Main Content */}
-      <main className="container mx-auto px-6 py-8 scroll-container">
+      <main className="container mx-auto px-6 py-8 mt-28 scroll-container">
         {/* Quick Profile Access removed */}
 
         {/* Stats Cards */}
@@ -960,7 +968,7 @@ export default function Dashboard() {
         <div className="mb-10">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center"> 
                 <HiOutlineBookOpen className="text-white text-xl" />
               </div>
               <h2 className="text-2xl font-bold text-white font-poppins">Trending Courses</h2>
